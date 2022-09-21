@@ -6,8 +6,12 @@ export class NomailCdkStack extends Stack {
   constructor(scope: Construct, id: string, props?: StackProps) {
 
     super(scope, id, props);
-    const table = new Table(this, 'Hits', {
-      partitionKey: { name: 'path', type: AttributeType.STRING }
-  });
+    const emailTable = new Table(this, 'emailTable', {
+      partitionKey: { name: 'emailuuid', type: AttributeType.STRING }
+    });
+    const accountTable = new Table(this, 'accountTable', {
+      partitionKey: { name: 'emailaddress', type: AttributeType.STRING }
+    });
+
   }
 }
