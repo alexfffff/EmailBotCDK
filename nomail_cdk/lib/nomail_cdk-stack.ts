@@ -38,6 +38,7 @@ export class NomailCdkStack extends Stack {
       }
     });
 
+
     // giving permissions
     send_data_function.addToRolePolicy(new PolicyStatement({
       actions: ['dynamodb:PutItem', 'dynamodb:GetItem', 'dynamodb:Scan', "dynamodb:BatchWriteItem"],
