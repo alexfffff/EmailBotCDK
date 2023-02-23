@@ -26,5 +26,8 @@
   "exclude": [
     "node_modules",
     "cdk.out"
-  ]
+  ],
+  "paths": {
+    "opt/nodejs/js-base64" : "layers/js-base64/nodejs/js-base64"
+  }
 }

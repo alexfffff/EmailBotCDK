@@ -16,12 +16,12 @@ export class NomailCdkStack extends Stack {
       partitionKey: { name: 'emailaddress', type: AttributeType.STRING }
     });
 
-
     const send_data_function = new Function(this, 'send_data_lambda', {
       runtime: Runtime.NODEJS_14_X,    // execution environment
       functionName: 'send_data',
       code: Code.fromAsset('lambda'),  // code loaded from "lambda" directory
       handler: 'send_data.handler',                // file is "hello", function is "handler"
+      timeout: Duration.seconds(300),
       environment: {
         'EMAIL_TABLE': emailTable.tableName,
         'ACCOUNT_TABLE': accountTable.tableName
